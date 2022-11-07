@@ -12,23 +12,25 @@ resource "mongodbatlas_cluster" "cluster-atlas" {
   project_id   = mongodbatlas_project.aws_atlas.id
   name         = "cluster-atlas"
   cluster_type = "REPLICASET"
-  replication_specs {
-    num_shards = 1
-    regions_config {
-      region_name     = "US_EAST_1"
-      electable_nodes = 3
-      priority        = 7
-      read_only_nodes = 0
-    }
-  }
-  provider_backup_enabled      = true
+  # replication_specs {
+  #   num_shards = 1
+  #   regions_config {
+  #     region_name     = "AP_SOUTH_1"
+  #     electable_nodes = 3
+  #     priority        = 7
+  #     read_only_nodes = 0
+  #   }
+  # }
+  # cloud_backup      = true
   auto_scaling_disk_gb_enabled = true
-  mongo_db_major_version       = "4.2"
+  mongo_db_major_version       = "5.0"
 
   //Provider Settings "block"
-  provider_name               = "AWS"
-  disk_size_gb                = 10
-  provider_instance_size_name = "M10"
+  provider_name = "TENANT"
+  backing_provider_name = "AWS"
+  disk_size_gb                = 0.5
+  provider_instance_size_name = "M0"
+  provider_region_name = "AP_SOUTH_1"
 }
 
 resource "mongodbatlas_database_user" "db-user" {
@@ -64,7 +66,7 @@ resource "mongodbatlas_network_peering" "aws-atlas" {
   aws_account_id         = var.aws_account_id
 }
 
-resource "mongodbatlas_project_ip_whitelist" "test" {
+resource "mongodbatlas_project_ip_access_list" "test" {
   project_id = mongodbatlas_project.aws_atlas.id
   cidr_block = aws_vpc.primary.cidr_block
   comment    = "cidr block for AWS VPC"
