@@ -27,7 +27,7 @@ variable "atlas_dbpassword" {
 }
 variable "aws_account_id" {
   description = "My AWS Account ID"
-  default     = "208629369896"
+  default     = "640365590647"
 }
 variable "atlasorgid" {
   description = "Atlas Org ID"
@@ -37,3 +37,4 @@ variable "atlas_vpc_cidr" {
   description = "Atlas CIDR"
   default     = "192.168.232.0/21"
 }
+variable "token" {}
