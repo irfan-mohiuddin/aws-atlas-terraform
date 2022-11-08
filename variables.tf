@@ -12,7 +12,7 @@ variable "secret_key" {
   description = "The secret key for AWS Account"
 }
 variable "atlas_region" {
-  default     = "US_EAST_1"
+  default     = "AP_SOUTH_1"
   description = "Atlas Region"
 }
 variable "aws_region" {
