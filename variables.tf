@@ -31,7 +31,7 @@ variable "aws_account_id" {
 }
 variable "atlasorgid" {
   description = "Atlas Org ID"
-  default     = "5c98a80fc56c98ef210b8633"
+  default     = "636b7762ef25a326c845203f"
 }
 variable "atlas_vpc_cidr" {
   description = "Atlas CIDR"
