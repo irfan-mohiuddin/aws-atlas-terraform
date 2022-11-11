@@ -12,7 +12,7 @@ variable "secret_key" {
   description = "The secret key for AWS Account"
 }
 variable "atlas_region" {
-  default     = "AP_SOUTH_1"
+  default     = "US_EAST_1"
   description = "Atlas Region"
 }
 variable "aws_region" {
@@ -31,7 +31,7 @@ variable "aws_account_id" {
 }
 variable "atlasorgid" {
   description = "Atlas Org ID"
-  default     = "636b7762ef25a326c845203f"
+  default     = "5c98a80fc56c98ef210b8633"
 }
 variable "atlas_vpc_cidr" {
   description = "Atlas CIDR"
