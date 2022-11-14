@@ -4,13 +4,13 @@ provider "mongodbatlas" {
 }
 
 resource "mongodbatlas_project" "aws_atlas" {
-  name   = "aws-atlas-2"
+  name   = "aws-atlas"
   org_id = var.atlasorgid
 }
 
 resource "mongodbatlas_cluster" "cluster-atlas" {
   project_id   = mongodbatlas_project.aws_atlas.id
-  name         = "cluster-atlas-2"
+  name         = "cluster-atlas"
   cluster_type = "REPLICASET"
   # replication_specs {
   #   num_shards = 1
